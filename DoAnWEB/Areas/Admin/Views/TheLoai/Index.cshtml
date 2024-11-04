@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DoAnWEB.Models.TheLoai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin2.cshtml";
+}
+<hr />
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>}
+
+<div>
+    <hr />
+    <h3>Thể Loại</h3>
+    <hr />
+    <div class="table-responsive">
+        <div>
+            <a href="@Url.Action("Create", "TheLoai")" class="btn btn-sm btn-success">Thêm mới</a>
+        </div>
+        <hr />
+        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>Tên Thể Loại</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenTL)
+                        </td>
+              
+                        <td class="center">
+                            @Html.ActionLink("Sửa", "Edit",
+                                            routeValues: new { id = item.MaTL },
+                                            htmlAttributes: new { @class = "btn btn-primary" })
+
+                            @Html.ActionLink("Xóa", "Delete",
+                                            routeValues: new { id = item.MaTL },
+                                            htmlAttributes: new { @class = "btn btn-danger", onclick = "return confirmDelete(); " })
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function confirmDelete() {
+        return confirm('Bạn chắc chắn muốn xóa sản phẩm này');
+    }</script>

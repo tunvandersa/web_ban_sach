@@ -1,0 +1,60 @@
+﻿@model DoAnWEB.Models.TacGia
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin2.cshtml";
+}
+<hr />
+<h3>Chỉnh sửa tác giả</h3>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>}
+@using (Html.BeginForm("Edit", "TacGia", new { @id = Model.MaTacGia }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaTacGia)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenTacGia, "Tên tác giả", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.TenTacGia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTacGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TieuSu, "Tiểu Sử", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+
+                @Html.TextAreaFor(model => model.TieuSu, new
+                {
+                    @class = "form-control",
+                    style = "width: 100%; height: 100px; overflow: auto; resize: none;"
+                })
+
+                @Html.ValidationMessageFor(model => model.TieuSu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

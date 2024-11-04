@@ -1,0 +1,129 @@
+﻿
+
+@model DoAnWEB.Models.GioHang
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/User/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+
+<div id="content-page" class="content-page">
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <div class="container-fluid checkout-content">
+        <div class="row">
+            <div id="cart" class="card-block show p-0 col-12">
+                <div class="row align-item-center">
+                    <div class="col-lg-8">
+                        <div class="iq-card">
+                            <div class="iq-card-header d-flex justify-content-between iq-border-bottom mb-0">
+                                <div class="iq-header-title">
+                                    <h4 class="card-title">Giỏ hàng</h4>
+                                </div>
+                            </div>
+                            <div class="iq-card-body">
+                                <ul class="list-inline p-0 m-0">
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <li class="checkout-product">
+                                            <div class="row align-items-center">
+                                                <div class="col-sm-2">
+                                                    <span class="checkout-product-img">
+                                                        <a href="javascript:void();"><img class="img-fluid rounded" src="@item.Image" alt=""></a>
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="checkout-product-details">
+                                                        <h5>@item.Title</h5>
+
+                                                        <div class="price">
+                                                            <h5>@item.Price</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="row">
+                                                        <div class="col-sm-10">
+                                                            <div class="row align-items-center mt-2">
+                                                                <div class="col-sm-7 col-md-6">
+                                                                    <a href="@Url.Action("GiamItem", "GioHang", new { masach = item.BookID })"
+                                                                       type="button" class="fa fa-minus qty-btn" id="btn-minus">
+                                                                    </a>
+                                                                    <input type="text" id="quantity" value="@item.Quantity" onchange="capnhatsoluong(@item.BookID, this.value)">
+                                                                    <a href="@Url.Action("ThemItem", "GioHang", new { masach = item.BookID, soluong = 1 })"
+                                                                       type="button" class="fa fa-plus qty-btn" id="btn-plus">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-5 col-md-6">
+                                                                    <span class="product-price">@item.Price ₫</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-sm-2">
+                                                            <a href="@Url.Action("XoaItem", "GioHang", new {masach = item.BookID })" class="text-dark font-size-20"><i class="ri-delete-bin-7-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="iq-card">
+                            <div class="iq-card-body">
+                                <p>Tùy chọn</p>
+                                <div class="d-flex justify-content-between">
+                                    <span>Phiếu giảm giá</span>
+                                    <span><a href="#"><strong>Áp dụng</strong></a></span>
+                                </div>
+                                <hr>
+                                <p><b>Chi tiết</b></p>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Tổng</span>
+                                    <span>@Model.tongthanhtoan</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-dark"><strong>Tổng</strong></span>
+                                    <span class="text-dark"><strong>@Model.tongthanhtoan</strong></span>
+                                </div>
+                                <a id="place-order" href="@Url.Action("ThanhToan","GioHang", new { area= "User"})" class="btn btn-primary d-block mt-3 next">Đặt hàng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function capnhatsoluong(bookid, quantity) {
+    if (!isNaN(quantity) && quantity > 0) {
+        var url = '@Url.Action("NhapSoLuong", "GioHang")' + '?masach=' + bookid + '&soluong=' + quantity;
+        window.location.href = url;
+    } else {
+        alert("Số lượng không hợp lệ");
+    }
+}
+</script>
+
+
+
+
+
+

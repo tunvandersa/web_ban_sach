@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tung NV\\OneDrive\\M\u00E1y t\u00EDnh\\web_ban_sach\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D0D1653-1620-467F-A3E1-4084698A555A}|DoAnWEB\\DoAnWEB.csproj|c:\\users\\tung nv\\onedrive\\m\u00E1y t\u00EDnh\\web_ban_sach\\doanweb\\areas\\admin\\views\\donhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1D0D1653-1620-467F-A3E1-4084698A555A}|DoAnWEB\\DoAnWEB.csproj|solutionrelative:doanweb\\areas\\admin\\views\\donhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Tung NV\\OneDrive\\M\u00E1y t\u00EDnh\\web_ban_sach\\DoAnWEB\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEB\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Tung NV\\OneDrive\\M\u00E1y t\u00EDnh\\web_ban_sach\\DoAnWEB\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEB\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-01T15:53:27.158Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

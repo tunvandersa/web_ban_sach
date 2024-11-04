@@ -1,0 +1,74 @@
+﻿@model DoAnWEB.Models.RegisterVM
+
+@{
+    Layout = null;
+}
+@{
+    if (ViewBag.Result != null && ViewBag.Result.ToString() == "true")
+    {
+        <script>alert('Đăng kí thành công')</script>
+    }
+    else if (ViewBag.Result != null && ViewBag.Result.ToString() == "true")
+    {
+        <script>alert('Đăng kí thất bại')</script>
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 |Register</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="~/Asset/bootstrap/css/bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Asset/dist/css/AdminLTE.min.css">
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href=""><b>Đăng Kí</b></a>
+        </div><!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Đăng kí tài khoản</p>
+            <form action="@Url.Action("DangKi", "DangKi", new { area = "Admin" })" method="post">
+                <div class="form-group has-feedback">
+                    <input name="UserName" type="text" class="form-control" placeholder="Tên tài khoản">
+                    <span class=" form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input name="Password" type="password" class="form-control" placeholder="Mật khẩu">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input name="ConfirmPassword" type="password" class="form-control" placeholder="Nhập lại mật khẩu">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+
+                <div class="col">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng kí </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <a href="@Url.Action("DangNhap","Auth")" class="btn btn-default btn-flat">Đăng nhập</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        
+    </div><!-- /.login-box-body -->
+    <script src="~/Asset/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="~/Asset/bootstrap/js/bootstrap.min.js"></script>
+    <div>
+        @Html.ActionLink("Back to List", "Đăng nhập")
+    </div>
+</body>
+</html>
